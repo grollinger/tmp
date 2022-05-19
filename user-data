@@ -1,0 +1,17 @@
+#cloud-config
+# vim: syntax=yaml
+hostname: relay
+
+ssh_authorized_keys:
+  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP6GydxhCM5L9f1bnZ3ysbiCZrdZtVOMQeiOgnL3VFqG ansible
+
+users:
+  - default
+
+system_info:
+  default_user:
+    name: ansible
+    lock_passwd: True
+    groups: [wheel, adm]
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    shell: /bin/bash
